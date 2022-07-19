@@ -3,54 +3,48 @@
 
 
 class Square:
-    """ Class Square """
+    """A class that defines a square by size, which defaults 0.
+    Also defines position using a tuple, which defaults (0, 0).
+    Square can also get area, and print square using '#'.
+    When printing, using position, offset on top and left.
+    """
     def __init__(self, size=0, position=(0, 0)):
-        """ Constructor """
         self.size = size
         self.position = position
 
     @property
     def size(self):
-        """ Getter size """
         return self.__size
 
     @size.setter
-    def size(self, value):
-        """ Setter size """
-        if not isinstance(value, int):
+    def size(self, size):
+        if type(size) != int:
             raise TypeError("size must be an integer")
-        elif value < 0:
+        if size < 0:
             raise ValueError("size must be >= 0")
-        else:
-            self.__size = value
+        self.__size = size
 
     @property
     def position(self):
-        """ Getter position """
         return self.__position
 
     @position.setter
     def position(self, value):
-        """ Setter position """
-        if not isinstance(value, tuple) or len(value) != 2:
+        if type(value) != tuple or len(value) != 2 or \
+           not all([type(i) == int for i in value]) or \
+           not all([i >= 0 for i in value]):
             raise TypeError("position must be a tuple of 2 positive integers")
-        elif not isinstance(value[0], int) or not isinstance(value[1], int):
-            raise TypeError("position must be a tuple of 2 positive integers")
-        elif value[0] < 0 or value[1] < 0:
-            raise TypeError("position must be a tuple of 2 positive integers")
-        else:
-            self.__position = value
+        self.__position = value
 
     def area(self):
-        """ Calculatre square area """
-        return(self.__size * self.__size)
+        return self.__size * self.__size
 
     def my_print(self):
-        """ Print square """
-        if self.size != 0:
-            for square_p in range(0, self.__position[1]):
-                print("")
-            for square_s in range(0, self.size):
-                print('{}{}'.format(' ' * self.__position[0], '#'*self.__size))
-            else:
-                print("")
+        if self.__size is 0:
+            print("")
+            return
+        for i in range(self.__position[1]):
+            print("")
+        for i in range(self.__size):
+            print(" " * self.__position[0], end="")
+            print("#" * self.__size)
