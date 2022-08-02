@@ -19,7 +19,7 @@ try:
             try:
                 file_size += int(tokens[-1])
                 if a == i:
-                    i += 1 
+                    i += 1
             except:
                 if a == i:
                     continue
