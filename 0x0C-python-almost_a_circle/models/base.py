@@ -124,7 +124,7 @@ class Base:
                 row_width += rect.width + rect.x + padding
                 if (row_height < rect.height + rect.y):
                     row_height = rect.height + rect.y
-                else:
+            else:
                 screen_height += row_height + padding
                 row_width = rect.width + rect.x + padding * 2
                 row_height = rect.height + rect.y
@@ -135,7 +135,7 @@ class Base:
                 row_width += square.size + square.x + padding
                 if (row_height < square.size + square.y):
                     row_height = square.size + square.y
-                else:
+            else:
                 screen_height += row_height + padding
                 row_width = square.size + square.x + padding * 2
                 row_height = square.size + square.y
@@ -154,7 +154,7 @@ class Base:
                 row_width += rect.width + rect.x + padding
                 if (row_height < rect.height + rect.y):
                     row_height = rect.height + rect.y
-                else:
+            else:
                 turtle.pu()
                 turtle.left(180)
                 turtle.forward(row_width - padding)
@@ -197,7 +197,7 @@ class Base:
                 row_width += square.size + square.x + padding
                 if (row_height < square.size):
                     row_height = square.size + square.y
-                else:
+            else:
                 turtle.pu()
                 turtle.left(180)
                 turtle.forward(row_width - padding)
